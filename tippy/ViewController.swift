@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             // This causes first view to fade in and second view to fade out
             self.dollarSignsView.alpha = 1
         })
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             // This causes first view to fade in and second view to fade out
             self.dollarSignsView.alpha = 0
         })
