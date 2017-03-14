@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         tipControl.setTitle(tip2Title, forSegmentAt: 1)
         tipControl.setTitle(tip3Title, forSegmentAt: 2)
         tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
+        billField.becomeFirstResponder();
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
+        //view.endEditing(false)
     }
     
     @IBAction func calculateTip(_ sender: Any) {
