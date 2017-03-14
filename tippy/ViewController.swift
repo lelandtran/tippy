@@ -15,9 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    @IBOutlet weak var dollarSignsView: UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.dollarSignsView.alpha = 0;
         let defaults = UserDefaults.standard
         let tip1 = Double(defaults.double(forKey: "tip1"))
         let tip2 = Double(defaults.double(forKey: "tip2"))
@@ -53,6 +55,15 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        UIView.animate(withDuration: 0.75, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.dollarSignsView.alpha = 1
+        })
+        UIView.animate(withDuration: 0.5, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.dollarSignsView.alpha = 0
+        })
     }
     
     @IBAction func onChange(_ sender: Any) {

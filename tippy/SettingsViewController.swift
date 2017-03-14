@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
         tipControl.setTitle(tip2Title, forSegmentAt: 1)
         tipControl.setTitle(tip3Title, forSegmentAt: 2)
         tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
+        
     }
     
     override func viewDidLoad() {
