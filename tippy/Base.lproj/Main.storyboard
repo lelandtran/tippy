@@ -175,6 +175,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fAr-yG-DWt">
+                                <rect key="frame" x="36" y="303" width="249" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="25%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onControlChange:" destination="PIg-3G-cuY" eventType="valueChanged" id="Syq-JT-Wxb"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -187,6 +199,7 @@
                         <outlet property="tip1Field" destination="NWF-LA-edo" id="nT1-7H-3fA"/>
                         <outlet property="tip2Field" destination="Ef3-Jn-lhe" id="Ob3-tY-Mc5"/>
                         <outlet property="tip3Field" destination="BZT-cR-Xix" id="2wf-fP-ua7"/>
+                        <outlet property="tipControl" destination="fAr-yG-DWt" id="gF6-il-K5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYE-ez-LII" userLabel="First Responder" sceneMemberID="firstResponder"/>

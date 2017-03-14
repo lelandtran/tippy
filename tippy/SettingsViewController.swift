@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tip1Field: UITextField!
     @IBOutlet weak var tip2Field: UITextField!
     @IBOutlet weak var tip3Field: UITextField!
+    @IBOutlet weak var tipControl: UISegmentedControl!
     
     override func viewWillAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
@@ -22,6 +23,13 @@ class SettingsViewController: UIViewController {
         tip1Field.text = "\(tip1)"
         tip2Field.text = "\(tip2)"
         tip3Field.text = "\(tip3)"
+        let tip1Title = String(format: "%.0f%%", tip1*100)
+        let tip2Title = String(format: "%.0f%%", tip2*100)
+        let tip3Title = String(format: "%.0f%%", tip3*100)
+        tipControl.setTitle(tip1Title, forSegmentAt: 0)
+        tipControl.setTitle(tip2Title, forSegmentAt: 1)
+        tipControl.setTitle(tip3Title, forSegmentAt: 2)
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
     }
     
     override func viewDidLoad() {
@@ -44,6 +52,9 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(tip1, forKey: "tip1")
         defaults.synchronize()
+        
+        let tip1Title = String(format: "%.0f%%", tip1*100)
+        tipControl.setTitle(tip1Title, forSegmentAt: 0)
     }
     
     @IBAction func onTip2Change(_ sender: Any) {
@@ -51,6 +62,9 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(tip2, forKey: "tip2")
         defaults.synchronize()
+        
+        let tip2Title = String(format: "%.0f%%", tip2*100)
+        tipControl.setTitle(tip2Title, forSegmentAt: 1)
     }
     
     @IBAction func onTip3Change(_ sender: Any) {
@@ -58,8 +72,17 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(tip3, forKey: "tip3")
         defaults.synchronize()
+        
+        let tip3Title = String(format: "%.0f%%", tip3*100)
+        tipControl.setTitle(tip3Title, forSegmentAt: 2)
     }
     
+    @IBAction func onControlChange(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        let selectedIndex = tipControl.selectedSegmentIndex
+        defaults.set(selectedIndex, forKey: "defaultTip")
+        defaults.synchronize()
+    }
     
 
     /*

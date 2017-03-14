@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         tipControl.setTitle(tip1Title, forSegmentAt: 0)
         tipControl.setTitle(tip2Title, forSegmentAt: 1)
         tipControl.setTitle(tip3Title, forSegmentAt: 2)
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
     }
     
     override func didReceiveMemoryWarning() {
