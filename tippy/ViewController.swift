@@ -51,6 +51,12 @@ class ViewController: UIViewController {
             self.totalLabel.center.x = 507
             self.tipControl.center.y = 300
             self.tipControl.alpha = 0
+        })
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.75, animations: {
+            
             self.tipControl.transform = CGAffineTransform(rotationAngle:CGFloat(3.14))
             
         })
