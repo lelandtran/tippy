@@ -48,7 +48,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onTap(_ sender: Any) {
         UIView.animate(withDuration: 0.75, animations: {
-            // This causes first view to fade in and second view to fade out
             self.tipControlView.center.y = 355
         })
         view.endEditing(true)
@@ -56,20 +55,17 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onTip1TouchDown(_ sender: Any) {
         UIView.animate(withDuration: 0.75, animations: {
-            // This causes first view to fade in and second view to fade out
             self.tipControlView.center.y = 285
         })
     }
     @IBAction func onTip2TouchDown(_ sender: Any) {
         UIView.animate(withDuration: 0.75, animations: {
-            // This causes first view to fade in and second view to fade out
             self.tipControlView.center.y = 285
         })
     }
     
     @IBAction func onTip3TouchDown(_ sender: Any) {
         UIView.animate(withDuration: 0.75, animations: {
-            // This causes first view to fade in and second view to fade out
             self.tipControlView.center.y = 285
         })
     }

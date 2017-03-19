@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dollarSignsView: UILabel!
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         self.dollarSignsView.alpha = 0;
         let defaults = UserDefaults.standard
@@ -31,7 +32,25 @@ class ViewController: UIViewController {
         tipControl.setTitle(tip2Title, forSegmentAt: 1)
         tipControl.setTitle(tip3Title, forSegmentAt: 2)
         tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
-        billField.becomeFirstResponder();
+        UIView.animate(withDuration: 0.75, animations: {
+            self.billField.center.x = 257
+            self.tipLabel.center.x = 257
+            self.totalLabel.center.x = 257
+            self.tipControl.center.y = 239
+            self.tipControl.alpha = 1
+        })
+        billField.becomeFirstResponder()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.75, animations: {
+            self.billField.center.x = 507
+            self.tipLabel.center.x = 507
+            self.totalLabel.center.x = 507
+            self.tipControl.center.y = 300
+            self.tipControl.alpha = 0
+        })
     }
     
     override func didReceiveMemoryWarning() {
