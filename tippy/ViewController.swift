@@ -38,6 +38,7 @@ class ViewController: UIViewController {
             self.totalLabel.center.x = 257
             self.tipControl.center.y = 239
             self.tipControl.alpha = 1
+            self.tipControl.transform = CGAffineTransform(rotationAngle:CGFloat(0))
         })
         billField.becomeFirstResponder()
         
@@ -50,6 +51,8 @@ class ViewController: UIViewController {
             self.totalLabel.center.x = 507
             self.tipControl.center.y = 300
             self.tipControl.alpha = 0
+            self.tipControl.transform = CGAffineTransform(rotationAngle:CGFloat(3.14))
+            
         })
     }
     
