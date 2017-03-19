@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.32156862745098036" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AfM-6k-Lel">
                                 <rect key="frame" x="36" y="96" width="23" height="21"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3226831896551724" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="mIb-iY-2f5" appends="YES" id="8gc-ak-Amn"/>
@@ -156,6 +156,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onTip1Change:" destination="PIg-3G-cuY" eventType="editingDidEnd" id="1gg-D3-otP"/>
+                                    <action selector="onTip1TouchDown:" destination="PIg-3G-cuY" eventType="touchDown" id="szZ-jJ-xBu"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Ef3-Jn-lhe">
@@ -166,6 +167,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onTip2Change:" destination="PIg-3G-cuY" eventType="editingDidEnd" id="hsE-Ez-0Le"/>
+                                    <action selector="onTip2TouchDown:" destination="PIg-3G-cuY" eventType="touchDown" id="w1b-rD-as6"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="BZT-cR-Xix">
@@ -176,6 +178,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="onTip3Change:" destination="PIg-3G-cuY" eventType="editingDidEnd" id="BJ5-3J-WIG"/>
+                                    <action selector="onTip3TouchDown:" destination="PIg-3G-cuY" eventType="touchDown" id="TGH-fo-SUe"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(As a decimal)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fr2-h8-lYk">
@@ -185,18 +188,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fAr-yG-DWt">
-                                <rect key="frame" x="36" y="256" width="249" height="29"/>
+                            <view contentMode="scaleToFill" misplaced="YES" id="Tdi-4m-LzP">
+                                <rect key="frame" x="16" y="355" width="288" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="18%"/>
-                                    <segment title="20%"/>
-                                    <segment title="25%"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onControlChange:" destination="PIg-3G-cuY" eventType="valueChanged" id="Syq-JT-Wxb"/>
-                                </connections>
-                            </segmentedControl>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fAr-yG-DWt">
+                                        <rect key="frame" x="20" y="-1" width="249" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="18%"/>
+                                            <segment title="20%"/>
+                                            <segment title="25%"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="onControlChange:" destination="PIg-3G-cuY" eventType="valueChanged" id="Syq-JT-Wxb"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -210,6 +220,7 @@
                         <outlet property="tip2Field" destination="Ef3-Jn-lhe" id="Ob3-tY-Mc5"/>
                         <outlet property="tip3Field" destination="BZT-cR-Xix" id="2wf-fP-ua7"/>
                         <outlet property="tipControl" destination="fAr-yG-DWt" id="gF6-il-K5V"/>
+                        <outlet property="tipControlView" destination="Tdi-4m-LzP" id="e8u-bm-MU5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYE-ez-LII" userLabel="First Responder" sceneMemberID="firstResponder"/>

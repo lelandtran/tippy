@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tip3Field: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    @IBOutlet weak var tipControlView: UIView!
     override func viewWillAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
         let tip1 = defaults.double(forKey: "tip1")
@@ -33,6 +34,7 @@ class SettingsViewController: UIViewController {
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,9 +47,32 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onTap(_ sender: Any) {
+        UIView.animate(withDuration: 0.75, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.tipControlView.center.y = 355
+        })
         view.endEditing(true)
     }
     
+    @IBAction func onTip1TouchDown(_ sender: Any) {
+        UIView.animate(withDuration: 0.75, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.tipControlView.center.y = 285
+        })
+    }
+    @IBAction func onTip2TouchDown(_ sender: Any) {
+        UIView.animate(withDuration: 0.75, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.tipControlView.center.y = 285
+        })
+    }
+    
+    @IBAction func onTip3TouchDown(_ sender: Any) {
+        UIView.animate(withDuration: 0.75, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.tipControlView.center.y = 285
+        })
+    }
     @IBAction func onTip1Change(_ sender: Any) {
         let tip1 = Double(tip1Field.text!) ?? 0.18
         let defaults = UserDefaults.standard
